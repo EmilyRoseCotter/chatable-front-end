@@ -1,21 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "../styles/App.css";
-import NavBar from "./NavBar";
 import Home from "./HomePage/HomePage";
-import Contact from "./Contact";
+import getClassName from "../helpers/helpers";
+
+const myStyles = {
+  sunrise: "sunrise-home",
+  afternoon: "afternoon-home",
+  sunset: "sunset-home",
+};
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/contact" component={Contact} />
-        </Switch>
-      </div>
-    </Router>
+    <div className={`App ${getClassName(myStyles)}`}>
+      <Home />
+    </div>
   );
 }
 

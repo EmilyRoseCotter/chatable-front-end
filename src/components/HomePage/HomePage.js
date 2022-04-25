@@ -1,9 +1,10 @@
 import React from "react";
+import "../../styles/HomePage.css";
 
 function Home() {
   return (
-    <div className="contact">
-      <h1>Chat</h1>
+    <div>
+      <h1 className="heading">Chat</h1>
     </div>
   );
 }
