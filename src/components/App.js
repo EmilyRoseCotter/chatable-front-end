@@ -3,7 +3,7 @@ import "../styles/App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./HomePage/HomePage";
-import getClassName from "../helpers/helpers";
+import getClassName from "../helpers/getClassNameHelper";
 
 const myStyles = {
   sunrise: "sunrise-home",

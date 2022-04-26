@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Footer.css";
-import getClassName from "../helpers/helpers";
+import getClassName from "../helpers/getClassNameHelper";
 
 const myFooterStyles = {
   sunrise: "sunrise-footer",
