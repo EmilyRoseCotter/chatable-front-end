@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/Header.css";
 import getClassName from "../helpers/helpers";
+// import sunsetLogo from "../assets/sunsetLogo.png";
+// import sunriseLogo from "../assets/sunriseLogo.png";
+import afternoonLogo from "../assets/afternoonLogo.png";
 
 const myHeaderStyles = {
   sunrise: "sunrise-header",
@@ -11,7 +14,7 @@ const myHeaderStyles = {
 function Header() {
   return (
     <div className={`Header ${getClassName(myHeaderStyles)}`}>
-      <p className="logo-filler">insert logo here</p>
+      <img className="logo" src={afternoonLogo} alt="Chatable logo" />
     </div>
   );
 }

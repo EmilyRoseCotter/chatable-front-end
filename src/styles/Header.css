@@ -1,18 +1,19 @@
 .sunrise-header {
   background-color: #FF6700;
-  height: 50px;
+  height: 60px;
 }
 
 .afternoon-header {
   background-color: #093A83;
-  height: 50px;
+  height: 60px;
 }
 
 .sunset-header {
   background-color: #EE808B;
-  height: 50px;
+  height: 60px;
 }
 
-.logo-filler {
+.logo {
   margin-top: 0;
+  height: inherit;
 }
