@@ -1,18 +1,32 @@
 .sunrise-footer {
     background-color: #FFA700;
     height: 80px;
-  }
+}
   
-  .afternoon-footer {
-    background-color: #3FCDD4;
-    height: 80px;
-  }
+.afternoon-footer {
+  background-color: #3FCDD4;
+  height: 80px;
+}
   
-  .sunset-footer {
-    background-color: #6A0D83;
-    height: 80px;
-  }
+.sunset-footer {
+  background-color: #6A0D83;
+  height: 80px;
+}
   
-  .copyright {
-    margin-bottom: 0;
-  }
+.copyright {
+  margin: 0;
+  padding-top: 25px;
+  padding-left: 10px;
+}
+
+.sunrise-copy {
+  color: #ad4a07;
+}
+
+.afternoon-copy {
+    color: #093A83;
+}
+
+.sunset-copy {
+  color: #db5663;
+}

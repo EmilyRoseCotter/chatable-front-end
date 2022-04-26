@@ -8,10 +8,18 @@ const myFooterStyles = {
   sunset: "sunset-footer",
 };
 
+const myCopyrightStyles = {
+  sunrise: "sunrise-copy",
+  afternoon: "afternoon-copy",
+  sunset: "sunset-copy",
+};
+
 function Footer() {
   return (
     <div className={`Footer ${getClassName(myFooterStyles)}`}>
-      <p className="copyright">insert copyright here</p>
+      <p className={`copyright ${getClassName(myCopyrightStyles)}`}>
+        &copy; Chatable 2022
+      </p>
     </div>
   );
 }
