@@ -3,7 +3,7 @@ import "../../styles/HomePage.css";
 
 function Home() {
   return (
-    <div>
+    <div className="HomePage">
       <h1 className="heading">Chat</h1>
     </div>
   );
