@@ -1,7 +1,6 @@
 import React from "react";
 import "../../styles/PositiveQuote.css";
 import timeChange from "../../helpers/timeChange";
-// import getClassName from "../../helpers/getClassNameHelper";
 
 const quotes = {
   sunrise: `“When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love.”, Marcus Aurelius`,
