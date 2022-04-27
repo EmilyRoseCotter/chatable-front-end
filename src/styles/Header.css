@@ -1,0 +1,19 @@
+.sunrise-header {
+  background-color: #ff914d;
+  height: 60px;
+}
+
+.afternoon-header {
+  background-color: #093A83;
+  height: 60px;
+}
+
+.sunset-header {
+  background-color: #EE808B;
+  height: 60px;
+}
+
+.logo {
+  margin-top: 0;
+  height: inherit;
+}

@@ -1,0 +1,37 @@
+.Footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sunrise-footer {
+    background-color: #FFA700;
+    height: 80px;
+}
+  
+.afternoon-footer {
+  background-color: #3FCDD4;
+  height: 80px;
+}
+  
+.sunset-footer {
+  background-color: #6A0D83;
+  height: 80px;
+}
+  
+.copyright {
+  margin: 0;
+  padding-top: 30px;
+}
+
+.sunrise-copy {
+  color: #093A83;
+}
+
+.afternoon-copy {
+  color: #093A83;
+}
+
+.sunset-copy {
+  color: #db5663;
+}
