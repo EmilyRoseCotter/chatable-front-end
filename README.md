@@ -1,4 +1,4 @@
-# Chatbot app
+# Chatable - front-end :speech_balloon:
 
 ## About
 
@@ -12,8 +12,8 @@ A chatbot programmed to operate as a youth mental health first aider with a focu
 
 ## Getting started 
 
-- Clone this repo
-  * e.g. 
+- Fork and close this repo
+  * e.g. `git clone git@github.com:EmilyRoseCotter/chatable-front-end.git`
 - Change directory into the repo
   * e.g.  (or the directory you specified the repo to be cloned into)
 - Install the dependencies from `package-lock.json`
