@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/PositiveQuote.css";
 import timeChange from "../../helpers/timeChange";
-import getClassName from "../../helpers/getClassNameHelper";
+// import getClassName from "../../helpers/getClassNameHelper";
 
 const quotes = {
   sunrise: `“When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love.”, Marcus Aurelius`,
@@ -19,7 +19,7 @@ const styles = {
 function PositiveQuote() {
   return (
     <div>
-      <h2 className={`Quote ${getClassName(styles)}`}>{timeChange(quotes)}</h2>
+      <h2 className={`Quote ${timeChange(styles)}`}>{timeChange(quotes)}</h2>
     </div>
   );
 }

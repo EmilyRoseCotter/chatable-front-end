@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Footer.css";
-import getClassName from "../helpers/getClassNameHelper";
+import timeChange from "../helpers/timeChange";
 
 const myFooterStyles = {
   sunrise: "sunrise-footer",
@@ -16,8 +16,8 @@ const myCopyrightStyles = {
 
 function Footer() {
   return (
-    <div className={`Footer ${getClassName(myFooterStyles)}`}>
-      <p className={`copyright ${getClassName(myCopyrightStyles)}`}>
+    <div className={`Footer ${timeChange(myFooterStyles)}`}>
+      <p className={`copyright ${timeChange(myCopyrightStyles)}`}>
         &copy; Chatable 2022
       </p>
     </div>
