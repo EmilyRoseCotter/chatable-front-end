@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Header.css";
-import getClassName from "../helpers/getClassNameHelper";
 import timeChange from "../helpers/timeChange";
 import sunsetLogo from "../assets/sunsetLogo.png";
 import sunriseLogo from "../assets/sunriseLogo.png";
@@ -20,7 +19,7 @@ const images = {
 
 function Header() {
   return (
-    <div className={`Header ${getClassName(myHeaderStyles)}`}>
+    <div className={`Header ${timeChange(myHeaderStyles)}`}>
       <img className="logo" src={timeChange(images)} alt="Chatable logo" />
     </div>
   );
