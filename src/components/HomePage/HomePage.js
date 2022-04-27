@@ -1,10 +1,11 @@
 import React from "react";
 import "../../styles/HomePage.css";
+import Greeting from "./CustomGreeting";
 
 function Home() {
   return (
     <div className="HomePage">
-      <h1 className="heading">Chat</h1>
+      <Greeting />
     </div>
   );
 }

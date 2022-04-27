@@ -1,3 +1,9 @@
+.Footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .sunrise-footer {
     background-color: #FFA700;
     height: 80px;
@@ -15,12 +21,11 @@
   
 .copyright {
   margin: 0;
-  padding-top: 25px;
-  padding-left: 10px;
+  padding-top: 30px;
 }
 
 .sunrise-copy {
-  color: #ad4a07;
+  color: #093A83;
 }
 
 .afternoon-copy {
