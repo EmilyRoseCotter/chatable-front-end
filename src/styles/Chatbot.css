@@ -1,0 +1,32 @@
+.chatbot-border {
+  height: 700px;
+  width: 700px;
+  border-radius: 7px;
+}
+
+.chatbot-chatbox {
+  height: 644px;
+  width: 100%;
+  overflow: auto;
+}
+
+.message-field {
+  margin: 0;
+  width: 689px;
+  height: 50px;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.sunrise-boarder {
+  border: 3px solid #ff914d;
+}
+
+.afternoon-boarder {
+  border: 3px solid #093A83;  
+}
+
+.sunset-boarder {
+  border: 3px solid #6A0D83;   
+}
