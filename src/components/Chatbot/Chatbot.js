@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/Chatbot.css";
 import timeChange from "../../helpers/timeChange";
@@ -49,6 +49,41 @@ function Chatbot() {
       };
     }
   };
+
+  const eventQuery = async (event) => {
+    let conversation;
+    const eventQueryVariables = {
+      event,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://chatable-heroku.herokuapp.com/api/df_event_query",
+        eventQueryVariables
+      );
+      const content = response.data.fulfillmentMessages[0];
+
+      conversation = {
+        who: "bot",
+        content,
+      };
+
+      console.log(conversation);
+    } catch (error) {
+      conversation = {
+        who: "bot",
+        content: {
+          text: {
+            text: "An error has occurred",
+          },
+        },
+      };
+    }
+  };
+
+  useEffect(() => {
+    eventQuery("Welcome");
+  }, []);
 
   function keyPressHandler(event) {
     if (event.key === "Enter") {
