@@ -9,10 +9,10 @@
   border-radius: 7px;
 }
 
-.chatbot-chatbox {
+.chatbotMessagesContainer {
   height: 644px;
   width: 100%;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .message-field {
