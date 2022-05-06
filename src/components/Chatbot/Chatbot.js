@@ -105,14 +105,13 @@ function Chatbot() {
   }
 
   return (
-    <div className="chatbot-container">
-      <div className={`chatbot-border ${timeChange(boarderStyles)}`}>
+    <div className="chatbotContainer">
+      <div className={`chatbotBorder ${timeChange(boarderStyles)}`}>
         <div className="messagesDisplay">
           <Messages messages={responses} />
         </div>
-        <div className="chatbot-chatbox" />
         <input
-          className={`message-field ${timeChange(boarderStyles)}`}
+          className={`messageField ${timeChange(boarderStyles)}`}
           placeholder="Type your message here.. "
           type="text"
           value={currentMessage}

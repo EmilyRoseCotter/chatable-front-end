@@ -2,12 +2,12 @@
   height: 92%;
 }
 
-.chatbot-container {
+.chatbotContainer {
   display: flex;
   justify-content: center;
 }
 
-.chatbot-border {
+.chatbotBorder {
   height: 700px;
   width: 700px;
   border-radius: 7px;
@@ -19,7 +19,7 @@
   overflow-y: auto;
 }
 
-.message-field {
+.messageField {
   margin: 0;
   width: 97.9%;
   height: 43px;

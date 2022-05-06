@@ -29,7 +29,7 @@
   
   .botMessage.sunriseCard {
       border-bottom-right-radius: 30px 30px;
-      border-top-left-radius: 30px 30px;
+      border-top-right-radius: 30px 30px;
       border-bottom-left-radius: 30px 30px;
       float: left;
       background-color: #ff914d;
@@ -49,7 +49,7 @@
   
   .botMessage.afternoonCard {
       border-bottom-right-radius: 30px 30px;
-      border-top-left-radius: 30px 30px;
+      border-top-right-radius: 30px 30px;
       border-bottom-left-radius: 30px 30px;
       float: left;
       background-color: #3FCDD4;
@@ -73,7 +73,7 @@
   
   .botMessage.eveningCard {
       border-bottom-right-radius: 30px 30px;
-      border-top-left-radius: 30px 30px;
+      border-top-right-radius: 30px 30px;
       border-bottom-left-radius: 30px 30px;
       float: left;
       background-color: #EE808B;
