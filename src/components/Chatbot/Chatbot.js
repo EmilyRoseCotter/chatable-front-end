@@ -33,13 +33,14 @@ function Chatbot() {
       .post("http://localhost:4000/api/df_text_query", textQueryVariables)
       .then((res) => {
         // const content = res.data.fulfillmentMessages[0];
-        const conversation = {
-          who: "bot",
-          content: res.data.fulfillmentMessages[0],
+        const botResponse = {
+          // who: "bot"
+          text: res.data.fulfillmentMessages[0].text.text,
+          isBot: true,
         };
         // eslint-disable-next-line
-        console.log(conversation);
-        setResponses((prev) => [...prev, conversation]);
+        console.log(botResponse);
+        setResponses((prev) => [...prev, botResponse]);
       })
       .catch((err) => {
         // eslint-disable-next-line
@@ -48,7 +49,7 @@ function Chatbot() {
   };
 
   const eventQuery = (event) => {
-    let conversation;
+    let botGreeting;
     const eventQueryVariables = {
       event,
     };
@@ -56,13 +57,14 @@ function Chatbot() {
     axios
       .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
       .then((res) => {
-        const content = res.data.fulfillmentMessages[0];
-        conversation = {
-          who: "bot",
-          content,
+        botGreeting = {
+          // who: "bot",
+          text: res.data.fulfillmentMessages[0].text.text,
+          isBot: true,
         };
         // eslint-disable-next-line
-        console.log(conversation);
+        console.log(botGreeting);
+        setResponses((prev) => [...prev, botGreeting]);
       })
       .catch((err) => {
         // eslint-disable-next-line
