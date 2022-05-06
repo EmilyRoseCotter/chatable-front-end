@@ -107,7 +107,7 @@ function Chatbot() {
   return (
     <div className="chatbot-container">
       <div className={`chatbot-border ${timeChange(boarderStyles)}`}>
-        <div>
+        <div className="messagesDisplay">
           <Messages messages={responses} />
         </div>
         <div className="chatbot-chatbox" />

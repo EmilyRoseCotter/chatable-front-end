@@ -1,3 +1,7 @@
+.messagesDisplay {
+  height: 92%;
+}
+
 .chatbot-container {
   display: flex;
   justify-content: center;
