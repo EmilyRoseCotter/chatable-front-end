@@ -18,9 +18,10 @@ function Messages({ messages }) {
 export default Messages;
 
 Messages.propTypes = {
-  messages: PropTypes.arrayOf({
-    message: PropTypes.arrayOf({
-      text: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.arrayOf(PropTypes.string.isRequired),
+      isBot: PropTypes.bool.isRequired,
+    }).isRequired
+  ).isRequired,
 };

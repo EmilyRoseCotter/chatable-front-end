@@ -34,7 +34,8 @@ function Message({ message }) {
 }
 export default Message;
 Message.propTypes = {
-  message: PropTypes.arrayOf({
-    text: PropTypes.string.isRequired,
+  message: PropTypes.shape({
+    text: PropTypes.arrayOf(PropTypes.string.isRequired),
+    isBot: PropTypes.bool.isRequired,
   }).isRequired,
 };
