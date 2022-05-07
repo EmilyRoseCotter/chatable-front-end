@@ -1,16 +1,19 @@
 .messagesDisplay {
   height: 92%;
+  margin-bottom: 50px;
 }
 
 .chatbotContainer {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .chatbotBorder {
   height: 700px;
   width: 700px;
   border-radius: 7px;
+  overflow: auto;
 }
 
 .chatbotMessagesContainer {
@@ -21,11 +24,14 @@
 
 .messageField {
   margin: 0;
-  width: 97.9%;
+  width: 690px;
   height: 43px;
   border-radius: 4px;
   padding: 5px;
   font-size: 1rem;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(43px);
 }
 
 .sunrise-boarder {

@@ -29,13 +29,14 @@ function Chatbot() {
       text,
     };
 
+    console.log(textQueryVariables);
     axios
       .post("http://localhost:4000/api/df_text_query", textQueryVariables)
       .then((res) => {
         // const content = res.data.fulfillmentMessages[0];
         const botResponse = {
           // who: "bot"
-          text: res.data.fulfillmentMessages[0].text.text,
+          text: res.data.fulfillmentMessages[0].text.text[0],
           isBot: true,
         };
         // eslint-disable-next-line
@@ -59,7 +60,7 @@ function Chatbot() {
       .then((res) => {
         botGreeting = {
           // who: "bot",
-          text: res.data.fulfillmentMessages[0].text.text,
+          text: res.data.fulfillmentMessages[0].text.text[0],
           isBot: true,
         };
         // eslint-disable-next-line
@@ -110,15 +111,15 @@ function Chatbot() {
         <div className="messagesDisplay">
           <Messages messages={responses} />
         </div>
-        <input
-          className={`messageField ${timeChange(boarderStyles)}`}
-          placeholder="Type your message here.. "
-          type="text"
-          value={currentMessage}
-          onChange={handleMessageChange}
-          onKeyDown={handleSubmit}
-        />
       </div>
+      <input
+        className={`messageField ${timeChange(boarderStyles)}`}
+        placeholder="Type your message here.. "
+        type="text"
+        value={currentMessage}
+        onChange={handleMessageChange}
+        onKeyDown={handleSubmit}
+      />
     </div>
   );
 }

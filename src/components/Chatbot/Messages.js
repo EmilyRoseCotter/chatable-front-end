@@ -6,9 +6,10 @@ import "../../styles/Messages.css";
 function Messages({ messages }) {
   return (
     <div className="messagesSection">
-      {messages.map((message) => {
+      {messages.map((message, index) => {
         return (
-          <div className="messagesContainer">
+          // eslint-disable-next-line react/no-array-index-key
+          <div key={index} className="messagesContainer">
             <Message message={message} />
           </div>
         );
@@ -21,7 +22,7 @@ export default Messages;
 Messages.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.arrayOf(PropTypes.string.isRequired),
+      text: PropTypes.string.isRequired,
       isBot: PropTypes.bool.isRequired,
     }).isRequired
   ).isRequired,
