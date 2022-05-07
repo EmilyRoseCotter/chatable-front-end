@@ -29,7 +29,6 @@ function Chatbot() {
       text,
     };
 
-    console.log(textQueryVariables);
     axios
       .post("http://localhost:4000/api/df_text_query", textQueryVariables)
       .then((res) => {
@@ -37,7 +36,6 @@ function Chatbot() {
           text: res.data.fulfillmentMessages[0].text.text[0],
           isBot: true,
         };
-        console.log(botResponse);
         setResponses((prev) => [...prev, botResponse]);
         handleScrollToLastMsg();
       })
@@ -59,7 +57,6 @@ function Chatbot() {
           text: res.data.fulfillmentMessages[0].text.text[0],
           isBot: true,
         };
-        console.log(botGreeting);
         setResponses((prev) => [...prev, botGreeting]);
         handleScrollToLastMsg();
       })
@@ -91,6 +88,18 @@ function Chatbot() {
   function handleMessageChange(event) {
     setCurrentMessage(event.target.value);
   }
+
+  // function renderOneMessage(message, index) {
+  //   if (message.text && message.text.text) {
+  //     return <Message key={index} text={message.text.text} />
+  //   } else if (message && message.payload.card)
+  // };
+
+  // function renderMessage(responses) {
+  //     return responses.map((message, i) => {
+  //       return renderOneMessage(message, i);
+  //     })
+  // }
 
   return (
     <div className="chatbotContainer">
