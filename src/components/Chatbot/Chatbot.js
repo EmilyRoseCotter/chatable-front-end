@@ -25,15 +25,6 @@ function Chatbot() {
   }
 
   const textQuery = (text) => {
-    // let conversation = {
-    //   who: "user",
-    //   content: {
-    //     text: {
-    //       text,
-    //     },
-    //   },
-    // };
-
     const textQueryVariables = {
       text,
     };
@@ -42,20 +33,16 @@ function Chatbot() {
     axios
       .post("http://localhost:4000/api/df_text_query", textQueryVariables)
       .then((res) => {
-        // const content = res.data.fulfillmentMessages[0];
         const botResponse = {
-          // who: "bot"
           text: res.data.fulfillmentMessages[0].text.text[0],
           isBot: true,
         };
-        // eslint-disable-next-line
         console.log(botResponse);
         setResponses((prev) => [...prev, botResponse]);
         handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
-        console.log("Error", err)
+        console.log("Error", err);
       });
   };
 
@@ -69,18 +56,15 @@ function Chatbot() {
       .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
       .then((res) => {
         botGreeting = {
-          // who: "bot",
           text: res.data.fulfillmentMessages[0].text.text[0],
           isBot: true,
         };
-        // eslint-disable-next-line
         console.log(botGreeting);
         setResponses((prev) => [...prev, botGreeting]);
         handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
-        console.log("Error", err)
+        console.log("Error", err);
       });
   };
 
@@ -89,21 +73,12 @@ function Chatbot() {
   }, []);
 
   function handleSubmit(event) {
-    // const singleMessage = {
-    //   who: "user",
-    //   content: {
-    //     text: {
-    //       text: currentMessage,
-    //     },
-    //   },
-    // };
     const singleMessage = {
       text: currentMessage,
       isBot: false,
     };
     if (event.key === "Enter") {
       if (!event.target.value) {
-        // eslint-disable-next-line
         alert("You need to type a message");
       }
       setResponses((prev) => [...prev, singleMessage]);
