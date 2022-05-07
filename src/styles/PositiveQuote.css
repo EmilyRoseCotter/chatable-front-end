@@ -1,11 +1,20 @@
-.sunrise-text {
+.sunriseText {
   color: #093A83;
 }
 
-.afternoon-text {
+.afternoonText {
  color: #093A83;
 }
 
-.sunrise-text {
+.sunsetText {
  color: #db5663;
+}
+
+.quoteContainer {
+  margin-top: 50px;
+}
+
+.quoteText {
+  padding-left: 20px;
+  padding-right: 20px;
 }
