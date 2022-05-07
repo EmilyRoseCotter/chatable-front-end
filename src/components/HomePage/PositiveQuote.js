@@ -18,7 +18,9 @@ const styles = {
 function PositiveQuote() {
   return (
     <div className="quoteContainer">
-      <h2 className={`Quote ${timeChange(styles)}`}>{timeChange(quotes)}</h2>
+      <h2 className={`quoteText ${timeChange(styles)}`}>
+        {timeChange(quotes)}
+      </h2>
     </div>
   );
 }
