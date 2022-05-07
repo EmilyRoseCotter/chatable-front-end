@@ -6,7 +6,7 @@ import Chatbot from "../Chatbot/Chatbot";
 
 function Home() {
   return (
-    <div className="HomePage">
+    <div className="homePage">
       <Greeting />
       <Chatbot />
       <PositiveQuote />

@@ -6,9 +6,9 @@ import timeChange from "../../helpers/timeChange";
 import Messages from "./Messages";
 
 const boarderStyles = {
-  sunrise: "sunrise-boarder",
-  afternoon: "afternoon-boarder",
-  sunset: "sunset-boarder",
+  sunrise: "sunriseBoarder",
+  afternoon: "afternoonBoarder",
+  sunset: "sunsetBoarder",
 };
 
 function Chatbot() {

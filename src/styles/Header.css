@@ -1,14 +1,14 @@
-.sunrise-header {
+.sunriseHeader {
   background-color: #ff914d;
   height: 60px;
 }
 
-.afternoon-header {
+.afternoonHeader {
   background-color: #093A83;
   height: 60px;
 }
 
-.sunset-header {
+.sunsetHeader {
   background-color: #EE808B;
   height: 60px;
 }

@@ -1,88 +1,88 @@
 .text {
-    text-align: left;
-    padding-left: 5px;
-  }
+ text-align: left;
+  padding-left: 5px;
+}
   
-  .botMessage {
-    text-align: right;
-  }
+.botMessage {
+  text-align: right;
+}
   
-  .message {
-    padding-left: 20px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 80%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+.message {
+  padding-left: 20px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.userMessage.sunriseCard {
+  border-bottom-right-radius: 30px 30px;
+  border-top-left-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  float: right;
+  background-color: #FFA700;
+}
   
-  .userMessage.sunriseCard {
-      border-bottom-right-radius: 30px 30px;
-      border-top-left-radius: 30px 30px;
-      border-bottom-left-radius: 30px 30px;
-      float: right;
-      background-color: #FFA700;
-  }
+.botMessage.sunriseCard {
+  border-bottom-right-radius: 30px 30px;
+  border-top-right-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  float: left;
+  background-color: #ff914d;
+}
   
-  .botMessage.sunriseCard {
-      border-bottom-right-radius: 30px 30px;
-      border-top-right-radius: 30px 30px;
-      border-bottom-left-radius: 30px 30px;
-      float: left;
-      background-color: #ff914d;
-  }
+.sunriseText {
+ color:#093A83;
+}
   
-  .sunriseText {
-   color:#093A83;
-  }
+.userMessage.afternoonCard {
+  border-bottom-right-radius: 30px 30px;
+  border-top-left-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  float: right;
+  background-color: #093A83;
+}
   
-  .userMessage.afternoonCard {
-      border-bottom-right-radius: 30px 30px;
-      border-top-left-radius: 30px 30px;
-      border-bottom-left-radius: 30px 30px;
-      float: right;
-      background-color: #093A83;
-  }
+.botMessage.afternoonCard {
+  border-bottom-right-radius: 30px 30px;
+  border-top-right-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  float: left;
+  background-color: #3FCDD4;
+}
   
-  .botMessage.afternoonCard {
-      border-bottom-right-radius: 30px 30px;
-      border-top-right-radius: 30px 30px;
-      border-bottom-left-radius: 30px 30px;
-      float: left;
-      background-color: #3FCDD4;
-  }
+.userText.afternoonText {
+  color:white;
+}
   
-  .userText.afternoonText {
-   color:white;
-  }
+.botText.afternoonText {
+  color:#093A83;
+}
   
-  .botText.afternoonText {
-      color:#093A83;
-  }
+.userMessage.eveningCard {
+  border-bottom-right-radius: 30px 30px;
+  border-top-left-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  float: right;
+  background-color: #6A0D83;
+}
   
-  .userMessage.eveningCard {
-      border-bottom-right-radius: 30px 30px;
-      border-top-left-radius: 30px 30px;
-      border-bottom-left-radius: 30px 30px;
-      float: right;
-      background-color: #6A0D83;
-  }
+.botMessage.eveningCard {
+  border-bottom-right-radius: 30px 30px;
+  border-top-right-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  float: left;
+  background-color: #EE808B;
+}
   
-  .botMessage.eveningCard {
-      border-bottom-right-radius: 30px 30px;
-      border-top-right-radius: 30px 30px;
-      border-bottom-left-radius: 30px 30px;
-      float: left;
-      background-color: #EE808B;
-  }
+.userText.eveningText {
+ color:#EE808B;
+}
   
-  .userText.eveningText {
-   color:#EE808B;
-  }
-  
-  .botText.eveningText {
-      color:#6A0D83;
-  }
+.botText.eveningText {
+  color:#6A0D83;
+}

@@ -35,15 +35,15 @@
   transform: translateY(55px);
 }
 
-.sunrise-boarder {
+.sunriseBoarder {
   border: 3px solid #ff914d;
 }
 
-.afternoon-boarder {
+.afternoonBoarder {
   border: 3px solid #093A83;  
 }
 
-.sunset-boarder {
+.sunsetBoarder {
   border: 3px solid #6A0D83;   
 }
 

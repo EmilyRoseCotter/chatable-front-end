@@ -10,9 +10,9 @@ const quotes = {
 };
 
 const styles = {
-  sunrise: "sunrise-text",
-  afternoon: "afternoon-text",
-  sunset: "sunset-text",
+  sunrise: "sunriseText",
+  afternoon: "afternoonText",
+  sunset: "sunsetText",
 };
 
 function PositiveQuote() {
