@@ -3,7 +3,8 @@ import axios from "axios";
 import "../../styles/Chatbot.css";
 import timeChange from "../../helpers/timeChange";
 
-import Messages from "./Messages";
+import Message from "./Message";
+import Card from "./Card";
 
 const boarderStyles = {
   sunrise: "sunrise-boarder",
@@ -15,31 +16,24 @@ function Chatbot() {
   const [responses, setResponses] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
 
-  const textQuery = (text) => {
-    // let conversation = {
-    //   who: "user",
-    //   content: {
-    //     text: {
-    //       text,
-    //     },
-    //   },
-    // };
-
+  const textQuery = (userText) => {
+    let botResponse;
     const textQueryVariables = {
-      text,
+      text: userText,
     };
 
     axios
       .post("http://localhost:4000/api/df_text_query", textQueryVariables)
       .then((res) => {
-        // const content = res.data.fulfillmentMessages[0];
-        const botResponse = {
-          // who: "bot"
-          text: res.data.fulfillmentMessages[0].text.text,
-          isBot: true,
-        };
-        // eslint-disable-next-line
-        console.log(botResponse);
+        for (const resTextContent of res.data.fulfillmentMessages) {
+          botResponse = {
+            who: "bot",
+            content: resTextContent,
+            isBot: true,
+          };
+          // eslint-disable-next-line
+          console.log(botResponse);
+        }
         setResponses((prev) => [...prev, botResponse]);
       })
       .catch((err) => {
@@ -48,22 +42,24 @@ function Chatbot() {
       });
   };
 
-  const eventQuery = (event) => {
+  const eventQuery = (userEvent) => {
     let botGreeting;
     const eventQueryVariables = {
-      event,
+      event: userEvent,
     };
 
     axios
       .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
       .then((res) => {
-        botGreeting = {
-          // who: "bot",
-          text: res.data.fulfillmentMessages[0].text.text,
-          isBot: true,
-        };
-        // eslint-disable-next-line
-        console.log(botGreeting);
+        for (const resEventContent of res.data.fulfillmentMessages) {
+          botGreeting = {
+            who: "bot",
+            content: resEventContent,
+            isBot: true,
+          };
+          // eslint-disable-next-line
+          console.log(botGreeting);
+        }
         setResponses((prev) => [...prev, botGreeting]);
       })
       .catch((err) => {
@@ -77,27 +73,58 @@ function Chatbot() {
   }, []);
 
   function handleSubmit(event) {
-    // const singleMessage = {
-    //   who: "user",
-    //   content: {
-    //     text: {
-    //       text: currentMessage,
-    //     },
-    //   },
-    // };
     const singleMessage = {
-      text: currentMessage,
+      who: "user",
+      content: {
+        text: {
+          text: currentMessage,
+        },
+      },
       isBot: false,
     };
+    //
     if (event.key === "Enter") {
       if (!event.target.value) {
         // eslint-disable-next-line
         alert("You need to type a message");
       }
       setResponses((prev) => [...prev, singleMessage]);
-      textQuery(singleMessage.text);
+      textQuery(event.target.value);
       setCurrentMessage("");
     }
+  }
+
+  function renderCards(cards) {
+    return cards.map((card) => <Card cardInfo={card.strucValue} />);
+  }
+
+  function renderOneResponse(response, i) {
+    if (response.content.text.text) {
+      return (
+        <div className="messagesSection">
+          <div className="messagesContainer">
+            <Message key={i} message={response} />
+          </div>
+        </div>
+      );
+    }
+    if (response.content.payload.cards) {
+      return (
+        <div key={i}>
+          {renderCards(response.content.payload.cards.listValue.values)}
+        </div>
+      );
+    }
+    return null;
+  }
+
+  function renderResponses(returnedResponses) {
+    if (returnedResponses) {
+      return returnedResponses.map((response, i) => {
+        return renderOneResponse(response, i);
+      });
+    }
+    return null;
   }
 
   function handleMessageChange(event) {
@@ -107,12 +134,10 @@ function Chatbot() {
   return (
     <div className="chatbotContainer">
       <div className={`chatbotBorder ${timeChange(boarderStyles)}`}>
-        <div className="messagesDisplay">
-          <Messages messages={responses} />
-        </div>
+        <div className="messagesDisplay">{renderResponses(responses)}</div>
         <input
           className={`messageField ${timeChange(boarderStyles)}`}
-          placeholder="Type your message here.. "
+          placeholder="Send a message..."
           type="text"
           value={currentMessage}
           onChange={handleMessageChange}
