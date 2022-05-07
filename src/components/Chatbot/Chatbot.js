@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../../styles/Chatbot.css";
 import timeChange from "../../helpers/timeChange";
@@ -14,6 +14,15 @@ const boarderStyles = {
 function Chatbot() {
   const [responses, setResponses] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
+
+  const chatbotBorderRef = useRef();
+
+  function handleScrollToLastMsg() {
+    if (chatbotBorderRef) {
+      chatbotBorderRef.current.scrollTop =
+        chatbotBorderRef.current.scrollHeight;
+    }
+  }
 
   const textQuery = (text) => {
     // let conversation = {
@@ -42,6 +51,7 @@ function Chatbot() {
         // eslint-disable-next-line
         console.log(botResponse);
         setResponses((prev) => [...prev, botResponse]);
+        handleScrollToLastMsg();
       })
       .catch((err) => {
         // eslint-disable-next-line
@@ -66,6 +76,7 @@ function Chatbot() {
         // eslint-disable-next-line
         console.log(botGreeting);
         setResponses((prev) => [...prev, botGreeting]);
+        handleScrollToLastMsg();
       })
       .catch((err) => {
         // eslint-disable-next-line
@@ -98,6 +109,7 @@ function Chatbot() {
       setResponses((prev) => [...prev, singleMessage]);
       textQuery(singleMessage.text);
       setCurrentMessage("");
+      handleScrollToLastMsg();
     }
   }
 
@@ -107,7 +119,10 @@ function Chatbot() {
 
   return (
     <div className="chatbotContainer">
-      <div className={`chatbotBorder ${timeChange(boarderStyles)}`}>
+      <div
+        ref={chatbotBorderRef}
+        className={`chatbotBorder ${timeChange(boarderStyles)}`}
+      >
         <div className="messagesDisplay">
           <Messages messages={responses} />
         </div>
