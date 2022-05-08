@@ -3,7 +3,8 @@ import axios from "axios";
 import "../../styles/Chatbot.css";
 import timeChange from "../../helpers/timeChange";
 
-import Messages from "./Messages";
+import Message from "./Message";
+import Card from "./Card";
 
 const boarderStyles = {
   sunrise: "sunriseBoarder",
@@ -24,17 +25,21 @@ function Chatbot() {
     }
   }
 
-  const textQuery = (text) => {
+  const textQuery = (userText) => {
+    let botResponse;
     const textQueryVariables = {
-      text,
+      text: userText,
     };
 
     console.log(textQueryVariables);
     axios
-      .post("http://localhost:4000/api/df_text_query", textQueryVariables)
+      .post(
+        "https://chatable-heroku.herokuapp.com/api/df_text_query",
+        textQueryVariables
+      )
       .then((res) => {
-        const botResponse = {
-          text: res.data.fulfillmentMessages[0].text.text[0],
+        botResponse = {
+          content: res.data.fulfillmentMessages[0],
           isBot: true,
         };
         console.log(botResponse);
@@ -46,17 +51,20 @@ function Chatbot() {
       });
   };
 
-  const eventQuery = (event) => {
+  const eventQuery = (userEvent) => {
     let botGreeting;
     const eventQueryVariables = {
-      event,
+      event: userEvent,
     };
 
     axios
-      .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
+      .post(
+        "https://chatable-heroku.herokuapp.com/api/df_event_query",
+        eventQueryVariables
+      )
       .then((res) => {
         botGreeting = {
-          text: res.data.fulfillmentMessages[0].text.text[0],
+          content: res.data.fulfillmentMessages[0],
           isBot: true,
         };
         console.log(botGreeting);
@@ -74,7 +82,11 @@ function Chatbot() {
 
   function handleSubmit(event) {
     const singleMessage = {
-      text: currentMessage,
+      content: {
+        text: {
+          text: [currentMessage],
+        },
+      },
       isBot: false,
     };
     if (event.key === "Enter") {
@@ -82,10 +94,45 @@ function Chatbot() {
         alert("You need to type a message");
       }
       setResponses((prev) => [...prev, singleMessage]);
-      textQuery(singleMessage.text);
+      textQuery(event.target.value);
       setCurrentMessage("");
       handleScrollToLastMsg();
     }
+  }
+
+  function renderCards(cards) {
+    return cards.map((card, index) => (
+      <Card index={index} cardInfo={card.strucValue} />
+    ));
+  }
+
+  function renderOneResponse(response, index) {
+    if (response.content.text.text) {
+      return (
+        <div className="messagesSection">
+          <div className="messagesContainer">
+            <Message index={index} message={response} />
+          </div>
+        </div>
+      );
+    }
+    if (response.content.payload.cards) {
+      return (
+        <div key={index}>
+          {renderCards(response.content.payload.cards.listValue.values)}
+        </div>
+      );
+    }
+    return null;
+  }
+
+  function renderResponses(returnedResponses) {
+    if (returnedResponses) {
+      return returnedResponses.map((response, index) => {
+        return renderOneResponse(response, index);
+      });
+    }
+    return null;
   }
 
   function handleMessageChange(event) {
@@ -98,9 +145,7 @@ function Chatbot() {
         ref={chatbotBorderRef}
         className={`chatbotBorder ${timeChange(boarderStyles)}`}
       >
-        <div className="messagesDisplay">
-          <Messages messages={responses} />
-        </div>
+        <div className="messagesDisplay">{renderResponses(responses)}</div>
       </div>
       <input
         className={`messageField ${timeChange(boarderStyles)}`}

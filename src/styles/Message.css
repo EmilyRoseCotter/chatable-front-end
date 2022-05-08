@@ -63,7 +63,7 @@
   color:#093A83;
 }
   
-.userMessage.eveningCard {
+.userMessage.sunsetCard {
   border-bottom-right-radius: 30px 30px;
   border-top-left-radius: 30px 30px;
   border-bottom-left-radius: 30px 30px;
@@ -71,7 +71,7 @@
   background-color: #6A0D83;
 }
   
-.botMessage.eveningCard {
+.botMessage.sunsetCard {
   border-bottom-right-radius: 30px 30px;
   border-top-right-radius: 30px 30px;
   border-bottom-left-radius: 30px 30px;
@@ -79,10 +79,10 @@
   background-color: #EE808B;
 }
   
-.userText.eveningText {
- color:#EE808B;
+.userText.sunsetText {
+ color:#f3a5ad;
 }
   
-.botText.eveningText {
-  color:#6A0D83;
+.botText.sunsetText {
+  color:#62047c;
 }
