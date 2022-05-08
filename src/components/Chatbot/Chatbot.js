@@ -38,11 +38,15 @@ function Chatbot() {
         textQueryVariables
       )
       .then((res) => {
-        botResponse = {
-          content: res.data.fulfillmentMessages[0],
-          isBot: true,
-        };
-        console.log(botResponse);
+        console.log(res.data.fulfillmentMessages);
+        for (const resTextContent of res.data.fulfillmentMessages) {
+          botResponse = {
+            content: resTextContent,
+            isBot: true,
+          };
+          // eslint-disable-next-line
+          console.log(botResponse);
+        }
         setResponses((prev) => [...prev, botResponse]);
         handleScrollToLastMsg();
       })
@@ -63,11 +67,14 @@ function Chatbot() {
         eventQueryVariables
       )
       .then((res) => {
-        botGreeting = {
-          content: res.data.fulfillmentMessages[0],
-          isBot: true,
-        };
-        console.log(botGreeting);
+        for (const resEventContent of res.data.fulfillmentMessages) {
+          botGreeting = {
+            content: resEventContent,
+            isBot: true,
+          };
+          // eslint-disable-next-line
+          console.log(botGreeting);
+        }
         setResponses((prev) => [...prev, botGreeting]);
         handleScrollToLastMsg();
       })
@@ -89,6 +96,7 @@ function Chatbot() {
       },
       isBot: false,
     };
+    //
     if (event.key === "Enter") {
       if (!event.target.value) {
         alert("You need to type a message");
@@ -126,10 +134,50 @@ function Chatbot() {
     return null;
   }
 
+  // function renderResponses(returnedResponses) {
+  //   if (returnedResponses) {
+  //     return returnedResponses.map((response, index) => {
+  //       return renderOneResponse(response, index);
+  //     });
+  //   }
+  //   return null;
+  // }
+
+  // function renderCards(cards) {
+  //   // eslint-disable-next-line react/no-array-index-key
+  //   return cards.map((card, i) => <Card key={i} cardInfo={card.structValue} />);
+  // }
+
+  // function renderOneResponse(response, i) {
+  //   // eslint-disable-next-line
+  //   console.log("response:", response);
+  //   if (response.content.text.text[0]) {
+  //     return (
+  //       <div className="messagesSection">
+  //         <div className="messagesContainer">
+  //           <Message key={i} message={response} />
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+  //   if (response.content.payload.fields.cards) {
+  //     const cards = response.content.payload.fields.cards.listValue.values; // array of cards
+  //     return (
+  //       <div key={i}>
+  //         {/* {renderCards(response.content.payload.fields.cards.listValue.values)} */}
+  //         {cards.map((card) => (
+  //           <Card key={i} cardInfo={card.structValue} />
+  //         ))}
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // }
+
   function renderResponses(returnedResponses) {
     if (returnedResponses) {
-      return returnedResponses.map((response, index) => {
-        return renderOneResponse(response, index);
+      return returnedResponses.map((response, i) => {
+        return renderOneResponse(response, i);
       });
     }
     return null;
