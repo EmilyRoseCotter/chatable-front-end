@@ -13,9 +13,9 @@ const textStyles = {
   afternoon: "afternoonText",
   sunset: "sunsetText",
 };
-function Message({ message }) {
+function Message({ message, index }) {
   return (
-    <div className="messageCard">
+    <div key={`message ${index}`} className="messageCard">
       {message.isBot ? (
         <div className={`message botMessage ${timeChange(cardStyles)}`}>
           <p className={`text botText ${timeChange(textStyles)}`}>
@@ -34,6 +34,7 @@ function Message({ message }) {
 }
 export default Message;
 Message.propTypes = {
+  index: PropTypes.number.isRequired,
   message: PropTypes.shape({
     content: PropTypes.shape({
       text: PropTypes.shape({

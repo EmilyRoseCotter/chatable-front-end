@@ -31,8 +31,12 @@ function Chatbot() {
       text: userText,
     };
 
+    console.log(textQueryVariables);
     axios
-      .post("http://localhost:4000/api/df_text_query", textQueryVariables)
+      .post(
+        "https://chatable-heroku.herokuapp.com/api/df_text_query",
+        textQueryVariables
+      )
       .then((res) => {
         botResponse = {
           content: res.data.fulfillmentMessages[0],
@@ -54,7 +58,10 @@ function Chatbot() {
     };
 
     axios
-      .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
+      .post(
+        "https://chatable-heroku.herokuapp.com/api/df_event_query",
+        eventQueryVariables
+      )
       .then((res) => {
         botGreeting = {
           content: res.data.fulfillmentMessages[0],
@@ -77,7 +84,7 @@ function Chatbot() {
     const singleMessage = {
       content: {
         text: {
-          text: currentMessage,
+          text: [currentMessage],
         },
       },
       isBot: false,
@@ -94,7 +101,9 @@ function Chatbot() {
   }
 
   function renderCards(cards) {
-    return cards.map((card) => <Card cardInfo={card.strucValue} />);
+    return cards.map((card, index) => (
+      <Card index={index} cardInfo={card.strucValue} />
+    ));
   }
 
   function renderOneResponse(response, index) {
@@ -102,7 +111,7 @@ function Chatbot() {
       return (
         <div className="messagesSection">
           <div className="messagesContainer">
-            <Message key={index} message={response} />
+            <Message index={index} message={response} />
           </div>
         </div>
       );

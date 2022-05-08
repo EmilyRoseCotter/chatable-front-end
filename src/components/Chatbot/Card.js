@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Card({ cardInfo }) {
+function Card({ cardInfo, index }) {
   return (
-    <div>
+    <div key={`card ${index}`}>
       <div>
         <img
           alt={cardInfo.fields.header.stringValue}
@@ -25,6 +25,7 @@ function Card({ cardInfo }) {
 export default Card;
 
 Card.propTypes = {
+  index: PropTypes.number.isRequired,
   cardInfo: PropTypes.shape({
     fields: PropTypes.shape({
       header: PropTypes.shape({
