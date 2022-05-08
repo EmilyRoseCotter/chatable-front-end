@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../../styles/Chatbot.css";
 import timeChange from "../../helpers/timeChange";
@@ -7,14 +7,23 @@ import Message from "./Message";
 import Card from "./Card";
 
 const boarderStyles = {
-  sunrise: "sunrise-boarder",
-  afternoon: "afternoon-boarder",
-  sunset: "sunset-boarder",
+  sunrise: "sunriseBoarder",
+  afternoon: "afternoonBoarder",
+  sunset: "sunsetBoarder",
 };
 
 function Chatbot() {
   const [responses, setResponses] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
+
+  const chatbotBorderRef = useRef();
+
+  function handleScrollToLastMsg() {
+    if (chatbotBorderRef) {
+      chatbotBorderRef.current.scrollTop =
+        chatbotBorderRef.current.scrollHeight;
+    }
+  }
 
   const textQuery = (userText) => {
     let botResponse;
@@ -22,12 +31,16 @@ function Chatbot() {
       text: userText,
     };
 
+    console.log(textQueryVariables);
     axios
-      .post("http://localhost:4000/api/df_text_query", textQueryVariables)
+      .post(
+        "https://chatable-heroku.herokuapp.com/api/df_text_query",
+        textQueryVariables
+      )
       .then((res) => {
+        console.log(res.data.fulfillmentMessages);
         for (const resTextContent of res.data.fulfillmentMessages) {
           botResponse = {
-            who: "bot",
             content: resTextContent,
             isBot: true,
           };
@@ -35,10 +48,10 @@ function Chatbot() {
           console.log(botResponse);
         }
         setResponses((prev) => [...prev, botResponse]);
+        handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
-        console.log("Error", err)
+        console.log("Error", err);
       });
   };
 
@@ -49,11 +62,13 @@ function Chatbot() {
     };
 
     axios
-      .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
+      .post(
+        "https://chatable-heroku.herokuapp.com/api/df_event_query",
+        eventQueryVariables
+      )
       .then((res) => {
         for (const resEventContent of res.data.fulfillmentMessages) {
           botGreeting = {
-            who: "bot",
             content: resEventContent,
             isBot: true,
           };
@@ -61,10 +76,10 @@ function Chatbot() {
           console.log(botGreeting);
         }
         setResponses((prev) => [...prev, botGreeting]);
+        handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
-        console.log("Error", err)
+        console.log("Error", err);
       });
   };
 
@@ -74,10 +89,9 @@ function Chatbot() {
 
   function handleSubmit(event) {
     const singleMessage = {
-      who: "user",
       content: {
         text: {
-          text: currentMessage,
+          text: [currentMessage],
         },
       },
       isBot: false,
@@ -85,45 +99,80 @@ function Chatbot() {
     //
     if (event.key === "Enter") {
       if (!event.target.value) {
-        // eslint-disable-next-line
         alert("You need to type a message");
       }
       setResponses((prev) => [...prev, singleMessage]);
       textQuery(event.target.value);
       setCurrentMessage("");
+      handleScrollToLastMsg();
     }
   }
+
+  function renderCards(cards) {
+    return cards.map((card, index) => (
+      <Card index={index} cardInfo={card.strucValue} />
+    ));
+  }
+
+  function renderOneResponse(response, index) {
+    if (response.content.text.text) {
+      return (
+        <div className="messagesSection">
+          <div className="messagesContainer">
+            <Message index={index} message={response} />
+          </div>
+        </div>
+      );
+    }
+    if (response.content.payload.cards) {
+      return (
+        <div key={index}>
+          {renderCards(response.content.payload.cards.listValue.values)}
+        </div>
+      );
+    }
+    return null;
+  }
+
+  // function renderResponses(returnedResponses) {
+  //   if (returnedResponses) {
+  //     return returnedResponses.map((response, index) => {
+  //       return renderOneResponse(response, index);
+  //     });
+  //   }
+  //   return null;
+  // }
 
   // function renderCards(cards) {
   //   // eslint-disable-next-line react/no-array-index-key
   //   return cards.map((card, i) => <Card key={i} cardInfo={card.structValue} />);
   // }
 
-  function renderOneResponse(response, i) {
-    // eslint-disable-next-line
-    console.log("response:", response);
-    if (response.content.text.text[0]) {
-      return (
-        <div className="messagesSection">
-          <div className="messagesContainer">
-            <Message key={i} message={response} />
-          </div>
-        </div>
-      );
-    }
-    if (response.content.payload.fields.cards) {
-      const cards = response.content.payload.fields.cards.listValue.values; // array of cards
-      return (
-        <div key={i}>
-          {/* {renderCards(response.content.payload.fields.cards.listValue.values)} */}
-          {cards.map((card) => (
-            <Card key={i} cardInfo={card.structValue} />
-          ))}
-        </div>
-      );
-    }
-    return null;
-  }
+  // function renderOneResponse(response, i) {
+  //   // eslint-disable-next-line
+  //   console.log("response:", response);
+  //   if (response.content.text.text[0]) {
+  //     return (
+  //       <div className="messagesSection">
+  //         <div className="messagesContainer">
+  //           <Message key={i} message={response} />
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+  //   if (response.content.payload.fields.cards) {
+  //     const cards = response.content.payload.fields.cards.listValue.values; // array of cards
+  //     return (
+  //       <div key={i}>
+  //         {/* {renderCards(response.content.payload.fields.cards.listValue.values)} */}
+  //         {cards.map((card) => (
+  //           <Card key={i} cardInfo={card.structValue} />
+  //         ))}
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // }
 
   function renderResponses(returnedResponses) {
     if (returnedResponses) {
@@ -140,17 +189,20 @@ function Chatbot() {
 
   return (
     <div className="chatbotContainer">
-      <div className={`chatbotBorder ${timeChange(boarderStyles)}`}>
+      <div
+        ref={chatbotBorderRef}
+        className={`chatbotBorder ${timeChange(boarderStyles)}`}
+      >
         <div className="messagesDisplay">{renderResponses(responses)}</div>
-        <input
-          className={`messageField ${timeChange(boarderStyles)}`}
-          placeholder="Send a message..."
-          type="text"
-          value={currentMessage}
-          onChange={handleMessageChange}
-          onKeyDown={handleSubmit}
-        />
       </div>
+      <input
+        className={`messageField ${timeChange(boarderStyles)}`}
+        placeholder="Type your message here.. "
+        type="text"
+        value={currentMessage}
+        onChange={handleMessageChange}
+        onKeyDown={handleSubmit}
+      />
     </div>
   );
 }

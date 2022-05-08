@@ -6,9 +6,9 @@ import sunriseLogo from "../assets/sunriseLogo.png";
 import afternoonLogo from "../assets/afternoonLogo.png";
 
 const myHeaderStyles = {
-  sunrise: "sunrise-header",
-  afternoon: "afternoon-header",
-  sunset: "sunset-header",
+  sunrise: "sunriseHeader",
+  afternoon: "afternoonHeader",
+  sunset: "sunsetHeader",
 };
 
 const images = {
@@ -19,7 +19,7 @@ const images = {
 
 function Header() {
   return (
-    <div className={`Header ${timeChange(myHeaderStyles)}`}>
+    <div className={`header ${timeChange(myHeaderStyles)}`}>
       <img className="logo" src={timeChange(images)} alt="Chatable logo" />
     </div>
   );

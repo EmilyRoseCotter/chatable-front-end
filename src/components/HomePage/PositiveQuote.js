@@ -10,15 +10,17 @@ const quotes = {
 };
 
 const styles = {
-  sunrise: "sunrise-text",
-  afternoon: "afternoon-text",
-  sunset: "sunset-text",
+  sunrise: "sunriseText",
+  afternoon: "afternoonText",
+  sunset: "sunsetText",
 };
 
 function PositiveQuote() {
   return (
-    <div>
-      <h2 className={`Quote ${timeChange(styles)}`}>{timeChange(quotes)}</h2>
+    <div className="quoteContainer">
+      <h2 className={`quoteText ${timeChange(styles)}`}>
+        {timeChange(quotes)}
+      </h2>
     </div>
   );
 }
