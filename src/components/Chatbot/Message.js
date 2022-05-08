@@ -19,13 +19,13 @@ function Message({ message }) {
       {message.isBot ? (
         <div className={`message botMessage ${timeChange(cardStyles)}`}>
           <p className={`text botText ${timeChange(textStyles)}`}>
-            {message.text}
+            {message.content.text.text}
           </p>
         </div>
       ) : (
         <div className={`message userMessage ${timeChange(cardStyles)}`}>
           <p className={`text userText ${timeChange(textStyles)}`}>
-            {message.text}
+            {message.content.text.text}
           </p>
         </div>
       )}
@@ -35,7 +35,11 @@ function Message({ message }) {
 export default Message;
 Message.propTypes = {
   message: PropTypes.shape({
-    text: PropTypes.string.isRequired,
+    content: PropTypes.shape({
+      text: PropTypes.shape({
+        text: PropTypes.arrayOf(PropTypes.string.isRequired),
+      }),
+    }),
     isBot: PropTypes.bool.isRequired,
   }).isRequired,
 };
