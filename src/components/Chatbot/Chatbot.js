@@ -34,20 +34,16 @@ function Chatbot() {
     axios
       .post("http://localhost:4000/api/df_text_query", textQueryVariables)
       .then((res) => {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const resTextContent of res.data.fulfillmentMessages) {
-          botResponse = {
-            content: resTextContent,
-            isBot: true,
-          };
-          console.log(botResponse);
-        }
+        botResponse = {
+          content: res.data.fulfillmentMessages[0],
+          isBot: true,
+        };
+        console.log(botResponse);
         setResponses((prev) => [...prev, botResponse]);
         handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
-      console.log("Error", err)
+        console.log("Error", err);
       });
   };
 
@@ -60,20 +56,16 @@ function Chatbot() {
     axios
       .post("http://localhost:4000/api/df_event_query", eventQueryVariables)
       .then((res) => {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const resEventContent of res.data.fulfillmentMessages) {
-          botGreeting = {
-            content: resEventContent,
-            isBot: true,
-          };
-          console.log(botGreeting);
-        }
+        botGreeting = {
+          content: res.data.fulfillmentMessages[0],
+          isBot: true,
+        };
+        console.log(botGreeting);
         setResponses((prev) => [...prev, botGreeting]);
         handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
-        console.log("Error", err)
+        console.log("Error", err);
       });
   };
 
