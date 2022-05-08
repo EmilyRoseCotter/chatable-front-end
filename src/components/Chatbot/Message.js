@@ -19,14 +19,12 @@ function Message({ message }) {
       {message.isBot ? (
         <div className={`message botMessage ${timeChange(cardStyles)}`}>
           <p className={`text botText ${timeChange(textStyles)}`}>
-            {message.who}
             {message.content.text.text}
           </p>
         </div>
       ) : (
         <div className={`message userMessage ${timeChange(cardStyles)}`}>
           <p className={`text userText ${timeChange(textStyles)}`}>
-            {message.who}
             {message.content.text.text}
           </p>
         </div>

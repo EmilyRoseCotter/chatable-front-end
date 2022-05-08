@@ -1,22 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Card({ cardInfo }) {
+function Card(props) {
+  const { cardInfo } = props;
   return (
-    <div>
-      <div style={{ width: 240 }}>
-        <img
-          alt={cardInfo.fields.header.stringValue}
-          src={cardInfo.fields.image.stringValue}
-        />
-        <span>{cardInfo.fields.header.stringValue}</span>
-      </div>
-      <div>
-        {cardInfo.fields.description.stringValue}
-        <p>
-          <a href="/">{cardInfo.fields.link.stringValue}</a>
-          Click
-        </p>
+    <div style={{ height: 270, paddingRight: 30, float: "left" }}>
+      <div className="card">
+        <div className="card-image" style={{ width: 240 }}>
+          <img
+            alt={cardInfo.fields.description.stringValue}
+            src={cardInfo.fields.image.stringValue}
+          />
+          <span className="card-title">
+            {cardInfo.fields.header.stringValue}
+          </span>
+        </div>
+        <div className="card-content">
+          {cardInfo.fields.description.stringValue}
+        </div>
       </div>
     </div>
   );

@@ -94,12 +94,15 @@ function Chatbot() {
     }
   }
 
-  function renderCards(cards) {
-    return cards.map((card) => <Card cardInfo={card.strucValue} />);
-  }
+  // function renderCards(cards) {
+  //   // eslint-disable-next-line react/no-array-index-key
+  //   return cards.map((card, i) => <Card key={i} cardInfo={card.structValue} />);
+  // }
 
   function renderOneResponse(response, i) {
-    if (response.content.text.text) {
+    // eslint-disable-next-line
+    console.log("response:", response);
+    if (response.content.text.text[0]) {
       return (
         <div className="messagesSection">
           <div className="messagesContainer">
@@ -108,10 +111,14 @@ function Chatbot() {
         </div>
       );
     }
-    if (response.content.payload.cards) {
+    if (response.content.payload.fields.cards) {
+      const cards = response.content.payload.fields.cards.listValue.values; // array of cards
       return (
         <div key={i}>
-          {renderCards(response.content.payload.cards.listValue.values)}
+          {/* {renderCards(response.content.payload.fields.cards.listValue.values)} */}
+          {cards.map((card) => (
+            <Card key={i} cardInfo={card.structValue} />
+          ))}
         </div>
       );
     }
