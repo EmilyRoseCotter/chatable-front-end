@@ -121,19 +121,10 @@ function Chatbot() {
   }
 
   function renderOneResponse(response, index) {
-    // if (response.content.text.text) {
-    //   <div className="messagesSection">
-    //     <div className="messagesContainer">
-    //       <Message index={index} message={response} />
-    //     </div>
-    //   </div>;
-    // } else {
-    //   <h2>Card</h2>;
-    // }
     if (response.content.payload) {
       return (
         <div key={index}>
-          {renderCards(response.content.payload.cards.listValue.values)}
+          {renderCards(response.content.payload.fields.cards.listValue.values)}
         </div>
       );
     }
