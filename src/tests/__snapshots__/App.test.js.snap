@@ -3,15 +3,63 @@
 exports[`renders the app 1`] = `
 <DocumentFragment>
   <div
-    class="App"
+    class="app"
   >
-    <header
-      class="App-header"
+    <div
+      class="header sunsetHeader"
     >
-      <h1>
-        Hello
-      </h1>
-    </header>
+      <img
+        alt="Chatable logo"
+        class="logo"
+        src="sunsetLogo.png"
+      />
+    </div>
+    <div
+      class="homePage"
+    >
+      <div>
+        <img
+          alt="Greeting"
+          class="greetingImage"
+          src="sunsetGreeting.png"
+        />
+      </div>
+      <div
+        class="chatbotContainer"
+      >
+        <div
+          class="chatbotBorder sunsetBoarder"
+        >
+          <div
+            class="messagesDisplay"
+          />
+        </div>
+        <input
+          class="messageField sunsetBoarder"
+          placeholder="Type your message here.. "
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="quoteContainer"
+      >
+        <h2
+          class="quoteText sunsetText"
+        >
+          Evening is a good time to look back at your day and think about all the things that you have done.
+        </h2>
+      </div>
+    </div>
+    <div
+      class="footer sunsetFooter"
+    >
+      <p
+        class="copyright sunsetCopy"
+      >
+        © Chatable 2022
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;

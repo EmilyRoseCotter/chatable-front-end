@@ -30,29 +30,23 @@ function Chatbot() {
     const textQueryVariables = {
       text: userText,
     };
-    // eslint-disable-next-line
-    console.log(textQueryVariables);
+
     axios
       .post(
         "https://chatable-heroku.herokuapp.com/api/df_text_query",
         textQueryVariables
       )
       .then((res) => {
-        // eslint-disable-next-line
-        console.log(res.data.fulfillmentMessages);
         for (const resTextContent of res.data.fulfillmentMessages) {
           botResponse = {
             content: resTextContent,
             isBot: true,
           };
-          // eslint-disable-next-line
-          console.log(botResponse);
         }
         setResponses((prev) => [...prev, botResponse]);
         handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
         console.log("Error", err);
       });
   };
@@ -69,21 +63,16 @@ function Chatbot() {
         eventQueryVariables
       )
       .then((res) => {
-        // eslint-disable-next-line
-        console.log(res.data.fulfillmentMessages);
         for (const resEventContent of res.data.fulfillmentMessages) {
           botGreeting = {
             content: resEventContent,
             isBot: true,
           };
-          // eslint-disable-next-line
-          console.log(botGreeting);
         }
         setResponses((prev) => [...prev, botGreeting]);
         handleScrollToLastMsg();
       })
       .catch((err) => {
-        // eslint-disable-next-line
         console.log("Error", err);
       });
   };
@@ -101,10 +90,8 @@ function Chatbot() {
       },
       isBot: false,
     };
-    //
     if (event.key === "Enter") {
       if (!event.target.value) {
-        // eslint-disable-next-line
         alert("You need to type a message");
       }
       setResponses((prev) => [...prev, singleMessage]);

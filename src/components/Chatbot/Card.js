@@ -1,22 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../../styles/Cards.css";
+import timeChange from "../../helpers/timeChange";
+
+const cardStyles = {
+  sunrise: "sunriseCards",
+  afternoon: "afternoonCards",
+  sunset: "sunsetCards",
+};
+const textStyles = {
+  sunrise: "sunriseText",
+  afternoon: "afternoonText",
+  sunset: "sunsetText",
+};
+
+const linkStyles = {
+  sunrise: "sunriseLink",
+  afternoon: "afternoonLink",
+  sunset: "sunsetLink",
+};
 
 function Card({ cardInfo, index }) {
   return (
-    <div key={`card ${index}`}>
-      <div>
-        <img
-          alt={cardInfo.fields.header.stringValue}
-          src={cardInfo.fields.image.stringValue}
-        />
-        <span>{cardInfo.fields.header.stringValue}</span>
-      </div>
-      <div>
-        {cardInfo.fields.description.stringValue}
-        <p>
-          <a href="/">{cardInfo.fields.link.stringValue}</a>
-          Click
-        </p>
+    <div className="cards" key={`card ${index}`}>
+      <div className={`cardContainer ${timeChange(cardStyles)}`}>
+        <div className="cardImageContainer">
+          <img
+            className="cardImage"
+            alt={cardInfo.fields.header.stringValue}
+            src={cardInfo.fields.image.stringValue}
+          />
+          <p className={`cardTitle ${timeChange(textStyles)}`}>
+            {cardInfo.fields.header.stringValue}
+          </p>
+        </div>
+        <div className={`cardDescription ${timeChange(textStyles)}`}>
+          {cardInfo.fields.description.stringValue}
+          <p>
+            Website:{" "}
+            <a
+              className={`cardLink ${timeChange(linkStyles)}`}
+              href={cardInfo.fields.link.stringValue}
+            >
+              {cardInfo.fields.link.stringValue}
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
