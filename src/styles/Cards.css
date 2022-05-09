@@ -22,6 +22,14 @@
   margin-right: 5px;
 }
 
+.cardLink {
+  text-decoration: none;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
 .sunriseCards {
   border: #ff914d solid 2px;
 }
@@ -32,14 +40,6 @@
 
 .sunsetCards {
   border: #EE808B solid 2px; 
-}
-
-.cardLink {
-  text-decoration: none;
-}
-
-.cardLink:hover {
-  text-decoration: underline;
 }
 
 .sunsetText {

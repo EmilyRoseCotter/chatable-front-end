@@ -30,20 +30,18 @@ function Chatbot() {
     const textQueryVariables = {
       text: userText,
     };
-    console.log(textQueryVariables);
+
     axios
       .post(
         "https://chatable-heroku.herokuapp.com/api/df_text_query",
         textQueryVariables
       )
       .then((res) => {
-        console.log(res.data.fulfillmentMessages);
         for (const resTextContent of res.data.fulfillmentMessages) {
           botResponse = {
             content: resTextContent,
             isBot: true,
           };
-          console.log(botResponse);
         }
         setResponses((prev) => [...prev, botResponse]);
         handleScrollToLastMsg();
@@ -65,13 +63,11 @@ function Chatbot() {
         eventQueryVariables
       )
       .then((res) => {
-        console.log(res.data.fulfillmentMessages);
         for (const resEventContent of res.data.fulfillmentMessages) {
           botGreeting = {
             content: resEventContent,
             isBot: true,
           };
-          console.log(botGreeting);
         }
         setResponses((prev) => [...prev, botGreeting]);
         handleScrollToLastMsg();
