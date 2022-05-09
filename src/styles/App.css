@@ -1,20 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Raleway:wght@500&display=swap');
 
-.App {
+.app {
   min-height: 100vh;
   background-color: white;
   font-family: 'Raleway', sans-serif;
   text-align: center;
 }
 
-/* .sunrise-home {
-  background: linear-gradient(to right top, #FF6700, #FFA700);
+p {
+  font-size: 17px;
 }
-
-.afternoon-home {
-background: linear-gradient(to right top, #093A83, #3FCDD4);
-}
-
-.sunset-home {
-background: linear-gradient(to right top, #EE808B, #6A0D83);
-} */

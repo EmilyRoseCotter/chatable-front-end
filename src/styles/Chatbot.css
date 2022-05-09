@@ -1,0 +1,56 @@
+.messagesDisplay {
+  height: 92%;
+  margin-bottom: 50px;
+}
+
+.chatbotContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.chatbotBorder {
+  height: 700px;
+  width: 700px;
+  border-radius: 7px;
+  overflow: auto;
+}
+
+.chatbotMessagesContainer {
+  height: 644px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.messageField {
+  margin: 0;
+  max-width: 690px;
+  width: 90%;
+  height: 43px;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(55px);
+}
+
+.sunriseBoarder {
+  border: 3px solid #ff914d;
+}
+
+.afternoonBoarder {
+  border: 3px solid #093A83;  
+}
+
+.sunsetBoarder {
+  border: 3px solid #6A0D83;   
+}
+
+@media only screen and (max-width: 450px) {
+  .chatbotBorder {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 550px;
+  }
+}

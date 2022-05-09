@@ -1,11 +1,29 @@
-.sunrise-text {
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
+.quoteText {
+  font-family: 'Square Peg', cursive;
+  font-size: 45px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.sunriseText {
   color: #093A83;
 }
 
-.afternoon-text {
+.afternoonText {
  color: #093A83;
 }
 
-.sunrise-text {
+.sunsetText {
  color: #db5663;
+}
+
+.quoteContainer {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 450px) {
+  .quoteText {
+    font-size: 30px;
+  }
 }

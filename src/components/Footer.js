@@ -3,20 +3,20 @@ import "../styles/Footer.css";
 import timeChange from "../helpers/timeChange";
 
 const myFooterStyles = {
-  sunrise: "sunrise-footer",
-  afternoon: "afternoon-footer",
-  sunset: "sunset-footer",
+  sunrise: "sunriseFooter",
+  afternoon: "afternoonFooter",
+  sunset: "sunsetFooter",
 };
 
 const myCopyrightStyles = {
-  sunrise: "sunrise-copy",
-  afternoon: "afternoon-copy",
-  sunset: "sunset-copy",
+  sunrise: "sunriseCopy",
+  afternoon: "afternoonCopy",
+  sunset: "sunsetCopy",
 };
 
 function Footer() {
   return (
-    <div className={`Footer ${timeChange(myFooterStyles)}`}>
+    <div className={`footer ${timeChange(myFooterStyles)}`}>
       <p className={`copyright ${timeChange(myCopyrightStyles)}`}>
         &copy; Chatable 2022
       </p>
