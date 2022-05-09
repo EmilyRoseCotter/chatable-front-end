@@ -42,6 +42,10 @@
   text-decoration: underline;
 }
 
+.sunsetText {
+  color: #6A0D83;
+}
+
 .sunriseLink {
     color: #b76431;
   }
@@ -51,5 +55,5 @@
 }
 
 .sunsetLink {
-    color: #6A0D83;
+  color: #e45160;
 }
