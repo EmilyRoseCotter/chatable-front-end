@@ -38,7 +38,10 @@ function Card({ cardInfo, index }) {
           {cardInfo.fields.description.stringValue}
           <p>
             Website:{" "}
-            <a className={`cardLink ${timeChange(linkStyles)}`} href="/">
+            <a
+              className={`cardLink ${timeChange(linkStyles)}`}
+              href={cardInfo.fields.link.stringValue}
+            >
               {cardInfo.fields.link.stringValue}
             </a>
           </p>
