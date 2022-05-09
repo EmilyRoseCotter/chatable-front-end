@@ -1,7 +1,6 @@
 function timeChange(items) {
   let item;
-  // const time = new Date().getHours();
-  const time = 12;
+  const time = new Date().getHours();
   if (time >= 6 && time < 12) {
     item = items.sunrise;
   } else if (time >= 12 && time < 19) {
