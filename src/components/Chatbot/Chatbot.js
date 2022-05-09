@@ -116,25 +116,32 @@ function Chatbot() {
 
   function renderCards(cards) {
     return cards.map((card, index) => (
-      <Card index={index} cardInfo={card.strucValue} />
+      <Card index={index} cardInfo={card.structValue} />
     ));
   }
 
   function renderOneResponse(response, index) {
-    if (response.content.payload) {
+    if (
+      response.content &&
+      response.content.text &&
+      response.content.text.text
+    ) {
+      return (
+        <div className="messagesSection">
+          <div className="messagesContainer">
+            <Message index={index} message={response} />
+          </div>
+        </div>
+      );
+    }
+    if (response.content && response.content.payload.fields.cards) {
       return (
         <div key={index}>
           {renderCards(response.content.payload.fields.cards.listValue.values)}
         </div>
       );
     }
-    return (
-      <div className="messagesSection">
-        <div className="messagesContainer">
-          <Message index={index} message={response} />
-        </div>
-      </div>
-    );
+    return null;
   }
 
   function renderResponses(returnedResponses) {
