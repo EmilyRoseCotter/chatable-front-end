@@ -6,6 +6,8 @@
 
 A chatbot programmed to operate as a youth mental health first aider with a focus on despression and anxiety. Built using React as part of the [Manchester Codes](https://www.manchestercodes.com) software engineering bootcamp. 
 
+The back end for this app can be found [here](https://github.com/JMoss89/chatable-backend) 
+
 ### Desktop view
 ![desktop-view](./src/assets/desktop.png)
 
