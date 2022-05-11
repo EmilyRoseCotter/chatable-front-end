@@ -1,16 +1,16 @@
 # Chatable - front-end :speech_balloon:
 
-(.src/assets/sunrise.png)
+(./src/assets/sunriseLogo.png)
 
 ## About
 
 A chatbot programmed to operate as a youth mental health first aider with a focus on despression and anxiety. Built using React as part of the [Manchester Codes](https://www.manchestercodes.com) software engineering bootcamp. 
 
 ### Desktop view
-![desktop-view](.src/assets/desktop.png)
+![desktop-view](./src/assets/desktop.png)
 
 ### Mobile view
-![mobile-view](.src/assets/mobile.png)
+![mobile-view](./src/assets/mobile.png)
 
 ## Getting started 
 
