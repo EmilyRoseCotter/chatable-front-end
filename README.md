@@ -31,8 +31,11 @@ Here is an overview of the tech stack that the Chatable app uses:
 - React router dom
 - Node.js
 - Axios
+- PropTypes
 - .env
 - CSS
+- eslint 
+- Prettier 
 
 ## Authors
 Emily Cotter and [July Moss](https://github.com/JMoss89)
