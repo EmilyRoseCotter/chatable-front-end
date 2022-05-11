@@ -1,14 +1,16 @@
 # Chatable - front-end :speech_balloon:
 
+(.src/assets/sunrise.png)
+
 ## About
 
 A chatbot programmed to operate as a youth mental health first aider with a focus on despression and anxiety. Built using React as part of the [Manchester Codes](https://www.manchestercodes.com) software engineering bootcamp. 
 
-## Description
+### Desktop view
+![desktop-view](.src/assets/desktop.png)
 
-## To do
-
-- 
+### Mobile view
+![mobile-view](.src/assets/mobile.png)
 
 ## Getting started 
 
@@ -20,19 +22,17 @@ A chatbot programmed to operate as a youth mental health first aider with a focu
   * `npm install`
 - To start the app:
   * `npm start`
-- To test the app:
-  * `npm test`
 
-## Testing 
+## Tech stack
 
-This app was built using the BDD approach. The components were built first followed by the tests. 
+Here is an overview of the tech stack that the Chatable app uses:
+- JavaScript
+- React
+- React router dom
+- Node.js
+- Axios
+- .env
+- CSS
 
-All tests can be found inside of the `./src/tests` directory.
-
-Users can run the tests for themselves, by running `npm install` to install the dependencies, followed by `npm test` to run the tests.
-
-## Styling
-The styling of this app is still a work in progress
-
-## Author
-Emily Cotter and [July Moss](https://github.com/MCRcodes/student-roster/blob/master/October2021/july-moss.md)
+## Authors
+Emily Cotter and [July Moss](https://github.com/JMoss89)
