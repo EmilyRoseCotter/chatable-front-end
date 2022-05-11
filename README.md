@@ -1,6 +1,6 @@
 # Chatable - front-end :speech_balloon:
 
-(./src/assets/sunriseLogo.png)
+![logo](./src/assets/sunriseLogo.png)
 
 ## About
 
