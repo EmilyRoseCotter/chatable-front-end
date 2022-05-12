@@ -7,13 +7,13 @@
 
 ***
 
-## About
+## About 👩🏻‍💻 👩‍💻
 
 A chatbot programmed to operate as a youth mental health first aider with a focus on despression and anxiety. Built using React as part of the [Manchester Codes](https://www.manchestercodes.com) software engineering bootcamp. 
 
-The back end for this app can be found [here](https://github.com/JMoss89/chatable-backend) 
+The back end for this app can be found [here](https://github.com/JMoss89/chatable-backend).
 
-## Why Chatable?
+## Why Chatable? 🌿
 
 Mental health illness can be hard to talk about sometimes. Chatable provides a safe space for young people to talk and seek for professional supports. As an online youtn mental health first aider, Chatable fills the gap between professional support and young people, and to encourage young people to seek for professional medical help.
 
@@ -21,9 +21,10 @@ Mental health illness can be hard to talk about sometimes. Chatable provides a s
 ![desktop-view](./src/assets/desktop.png)
 
 ### Mobile view
+The colour palette, greeting grapic and inspiration quote changes at different intervals throughout the day.
 ![mobile-view](./src/assets/chatable-mobile.png)
 
-## Getting started 
+## Installation ⌨️
 
 - Fork and close this repo
   * e.g. `git clone git@github.com:EmilyRoseCotter/chatable-front-end.git`
@@ -34,7 +35,7 @@ Mental health illness can be hard to talk about sometimes. Chatable provides a s
 - To start the app:
   * `npm start`
 
-## Tech stack
+## Tech stack 💡
 
 Here is an overview of the tech stack that the Chatable app uses:
 - JavaScript
