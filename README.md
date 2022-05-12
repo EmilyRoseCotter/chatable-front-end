@@ -21,7 +21,7 @@ Mental health illness can be hard to talk about sometimes. Chatable provides a s
 ![desktop-view](./src/assets/desktop.png)
 
 ### Mobile view
-![mobile-view](./src/assets/mobile.png)
+![mobile-view](./src/assets/chatable-mobile.png)
 
 ## Getting started 
 
