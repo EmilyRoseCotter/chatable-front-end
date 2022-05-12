@@ -21,7 +21,7 @@ Mental health illness can be hard to talk about sometimes. Chatable provides a s
 ![desktop-view](./src/assets/desktop.png)
 
 ### Mobile view
-The colour palette, greeting grapic and inspiration quote changes at different intervals throughout the day.
+The colour palette, greeting grapic and inspirational quote changes at different intervals throughout the day.
 ![mobile-view](./src/assets/chatable-mobile.png)
 
 ## Installation ⌨️
