@@ -1,12 +1,21 @@
 # Chatable - front-end :speech_balloon:
 
-![logo](./src/assets/sunriseLogo.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/EmilyRoseCotter/chatable-front-end/master/src/assets/sunriseLogo.png"
+  >
+</p>
+
+***
 
 ## About
 
 A chatbot programmed to operate as a youth mental health first aider with a focus on despression and anxiety. Built using React as part of the [Manchester Codes](https://www.manchestercodes.com) software engineering bootcamp. 
 
 The back end for this app can be found [here](https://github.com/JMoss89/chatable-backend) 
+
+## Why Chatable?
+
+Mental health illness can be hard to talk about sometimes. Chatable provides a safe space for young people to talk and seek for professional supports. As an online youtn mental health first aider, Chatable fills the gap between professional support and young people, and to encourage young people to seek for professional medical help.
 
 ### Desktop view
 ![desktop-view](./src/assets/desktop.png)
